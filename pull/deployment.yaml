@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: my-java-app
-          image: europe-west2-docker.pkg.dev/tcp-demo/tcp-demo-repo/tcp-demo-app:2172662
+          image: europe-west2-docker.pkg.dev/tcp-demo/tcp-demo-repo/tcp-demo-app:55220b7
           ports:
             - containerPort: 8080
