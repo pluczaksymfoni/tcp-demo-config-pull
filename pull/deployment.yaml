@@ -1,22 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-java-app
+  name: my-java-app-pull
   namespace: myapp-pull
   labels:
-    app: my-java-app
+    app: my-java-app-pull
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: my-java-app
+      app: my-java-app-pull
   template:
     metadata:
       labels:
-        app: my-java-app
+        app: my-java-app-pull
     spec:
       containers:
-        - name: my-java-app
-          image: europe-west2-docker.pkg.dev/tcp-demo/tcp-demo-repo/tcp-demo-app:359de88
+        - name: my-java-app-pull
+          image: europe-west2-docker.pkg.dev/tcp-demo/tcp-demo-repo/tcp-demo-app:f9c9e50
+          env:
+            - name: CD_MODEL
+              value: "PULL MODEL"
+            - name: SPRING_PROFILES_ACTIVE
+              value: "k8s"
           ports:
             - containerPort: 8080

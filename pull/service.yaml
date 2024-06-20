@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-java-app
+  name: my-java-app-pull
   namespace: myapp-pull
 spec:
   type: LoadBalancer
   selector:
-    app: my-java-app
+    app: my-java-app-pull
   ports:
     - protocol: TCP
       port: 80
